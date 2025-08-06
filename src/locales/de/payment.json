@@ -1,0 +1,140 @@
+{
+  "methods": {
+    "cash": "Bargeld",
+    "bank_transfer": "Banküberweisung",
+    "credit_card": "Kreditkarte",
+    "debit_card": "Debitkarte",
+    "paypal": "PayPal",
+    "stripe": "Stripe",
+    "sepa": "SEPA-Lastschrift",
+    "check": "Scheck",
+    "other": "Sonstiges"
+  },
+  "status": {
+    "pending": "Ausstehend",
+    "processing": "Wird verarbeitet",
+    "completed": "Abgeschlossen",
+    "failed": "Fehlgeschlagen",
+    "cancelled": "Storniert",
+    "refunded": "Rückerstattet",
+    "partial": "Teilweise"
+  },
+  "fields": {
+    "amount": "Betrag",
+    "method": "Zahlungsart",
+    "date": "Zahlungsdatum",
+    "reference": "Referenz",
+    "description": "Beschreibung",
+    "transactionId": "Transaktions-ID",
+    "paymentTerms": "Zahlungsbedingungen",
+    "dueDate": "Fälligkeitsdatum",
+    "discount": "Skonto",
+    "discountRate": "Skontosatz",
+    "discountDays": "Skontotage",
+    "paymentLink": "Zahlungslink",
+    "notes": "Notizen"
+  },
+  "table": {
+    "invoiceNumber": "Rechnungsnr.",
+    "amount": "Betrag",
+    "method": "Zahlungsart",
+    "date": "Zahlungsdatum",
+    "status": "Status",
+    "reference": "Referenz",
+    "actions": "Aktionen",
+    "createdAt": "Erstellt am"
+  },
+  "actions": {
+    "recordPayment": "Zahlung verbuchen",
+    "editPayment": "Zahlung bearbeiten",
+    "deletePayment": "Zahlung löschen",
+    "refundPayment": "Zahlung rückerstatten",
+    "generateLink": "Zahlungslink erstellen",
+    "sendLink": "Zahlungslink senden",
+    "viewReceipt": "Quittung anzeigen",
+    "downloadReceipt": "Quittung herunterladen",
+    "exportPayments": "Zahlungen exportieren"
+  },
+  "validation": {
+    "amountRequired": "Betrag ist erforderlich",
+    "amountPositive": "Betrag muss positiv sein",
+    "methodRequired": "Zahlungsart ist erforderlich",
+    "dateRequired": "Zahlungsdatum ist erforderlich",
+    "referenceRequired": "Referenz ist erforderlich",
+    "dueDateRequired": "Fälligkeitsdatum ist erforderlich",
+    "discountRateValid": "Skontosatz muss zwischen 0 und 100 liegen",
+    "discountDaysValid": "Skontotage müssen positiv sein"
+  },
+  "messages": {
+    "paymentRecorded": "Zahlung erfolgreich verbucht",
+    "paymentUpdated": "Zahlung erfolgreich aktualisiert",
+    "paymentDeleted": "Zahlung erfolgreich gelöscht",
+    "paymentRefunded": "Zahlung erfolgreich rückerstattet",
+    "linkGenerated": "Zahlungslink erfolgreich erstellt",
+    "linkSent": "Zahlungslink erfolgreich gesendet",
+    "receiptGenerated": "Quittung erfolgreich erstellt",
+    "dataExported": "Zahlungsdaten erfolgreich exportiert",
+    "paymentFailed": "Zahlung fehlgeschlagen",
+    "insufficientFunds": "Unzureichende Deckung",
+    "paymentProcessing": "Zahlung wird verarbeitet"
+  },
+  "reminders": {
+    "title": "Zahlungserinnerungen",
+    "level1": "1. Mahnung",
+    "level2": "2. Mahnung",
+    "level3": "3. Mahnung",
+    "level4": "4. Mahnung",
+    "level5": "Inkasso",
+    "daysOverdue": "Tage überfällig",
+    "reminderFee": "Mahngebühr",
+    "interestRate": "Zinssatz",
+    "totalAmount": "Gesamtbetrag",
+    "sendReminder": "Mahnung senden",
+    "scheduleReminder": "Mahnung planen",
+    "viewHistory": "Mahnhistorie anzeigen",
+    "escalateToCollection": "An Inkasso übergeben"
+  },
+  "analytics": {
+    "totalPayments": "Zahlungen gesamt",
+    "totalAmount": "Gesamtbetrag",
+    "averagePaymentTime": "Durchschnittliche Zahlungsdauer",
+    "paymentsByMethod": "Zahlungen nach Art",
+    "overduePayments": "Überfällige Zahlungen",
+    "collectionRate": "Einzugsquote",
+    "cashFlow": "Cashflow",
+    "monthlyRevenue": "Monatlicher Umsatz",
+    "yearlyRevenue": "Jährlicher Umsatz",
+    "paymentTrends": "Zahlungstrends"
+  },
+  "terms": {
+    "immediately": "Sofort",
+    "net7": "7 Tage netto",
+    "net14": "14 Tage netto",
+    "net30": "30 Tage netto",
+    "net60": "60 Tage netto",
+    "net90": "90 Tage netto",
+    "custom": "Benutzerdefiniert"
+  },
+  "bankDetails": {
+    "title": "Bankverbindung",
+    "accountHolder": "Kontoinhaber",
+    "bankName": "Bankname",
+    "iban": "IBAN",
+    "bic": "BIC",
+    "accountNumber": "Kontonummer",
+    "sortCode": "Bankleitzahl",
+    "reference": "Verwendungszweck"
+  },
+  "modal": {
+    "recordPayment": "Zahlung erfassen",
+    "paymentDate": "Zahlungsdatum",
+    "amount": "Betrag",
+    "paymentMethod": "Zahlungsart",
+    "invoiceInformation": "Rechnungsinformation",
+    "cancel": "Abbrechen",
+    "recordPaymentButton": "Zahlung erfassen",
+    "createStorno": "Storno erstellen",
+    "stornoReason": "Storno-Grund",
+    "createStornoButton": "Storno erstellen"
+  }
+}

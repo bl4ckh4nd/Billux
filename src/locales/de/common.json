@@ -1,0 +1,154 @@
+{
+  "actions": {
+    "add": "Hinzufügen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "confirm": "Bestätigen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "export": "Exportieren",
+    "import": "Importieren",
+    "print": "Drucken",
+    "download": "Herunterladen",
+    "upload": "Hochladen",
+    "view": "Anzeigen",
+    "preview": "Vorschau",
+    "duplicate": "Duplizieren"
+  },
+  "status": {
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "pending": "Ausstehend",
+    "completed": "Abgeschlossen",
+    "draft": "Entwurf",
+    "processing": "Verarbeitung",
+    "failed": "Fehlgeschlagen",
+    "success": "Erfolgreich"
+  },
+  "validation": {
+    "required": "Dieses Feld ist erforderlich",
+    "email": "Gültige E-Mail-Adresse erforderlich",
+    "phone": "Gültige Telefonnummer erforderlich",
+    "minLength": "Mindestens {{count}} Zeichen erforderlich",
+    "maxLength": "Maximal {{count}} Zeichen erlaubt",
+    "numeric": "Nur Zahlen erlaubt",
+    "positive": "Wert muss positiv sein",
+    "dateFormat": "Gültiges Datum erforderlich"
+  },
+  "messages": {
+    "loading": "Wird geladen...",
+    "noData": "Keine Daten verfügbar",
+    "error": "Ein Fehler ist aufgetreten",
+    "success": "Erfolgreich gespeichert",
+    "confirmDelete": "Sind Sie sicher, dass Sie diesen Eintrag löschen möchten?",
+    "unsavedChanges": "Sie haben ungespeicherte Änderungen. Möchten Sie fortfahren?",
+    "networkError": "Netzwerkfehler. Bitte versuchen Sie es erneut.",
+    "serverError": "Serverfehler. Bitte kontaktieren Sie den Support."
+  },
+  "dateTime": {
+    "today": "Heute",
+    "yesterday": "Gestern",
+    "tomorrow": "Morgen",
+    "thisWeek": "Diese Woche",
+    "lastWeek": "Letzte Woche",
+    "thisMonth": "Dieser Monat",
+    "lastMonth": "Letzter Monat",
+    "thisYear": "Dieses Jahr",
+    "lastYear": "Letztes Jahr"
+  },
+  "units": {
+    "piece": "Stück",
+    "hour": "Stunde",
+    "day": "Tag",
+    "week": "Woche",
+    "month": "Monat",
+    "year": "Jahr",
+    "kilogram": "kg",
+    "gram": "g",
+    "liter": "l",
+    "meter": "m",
+    "centimeter": "cm",
+    "squareMeter": "m²"
+  },
+  "pagination": {
+    "previous": "Vorherige",
+    "next": "Nächste",
+    "first": "Erste",
+    "last": "Letzte",
+    "page": "Seite",
+    "of": "von",
+    "itemsPerPage": "Einträge pro Seite",
+    "showing": "Zeige {{from}} bis {{to}} von {{total}} Einträgen"
+  },
+  "search": {
+    "placeholder": "Suchen... (⌘K)",
+    "clear": "Suche löschen",
+    "noResults": "Keine Ergebnisse gefunden",
+    "searchDotDotDot": "Suchen..."
+  },
+  "sidebar": {
+    "toggle": "Seitenleiste umschalten"
+  },
+  "menu": {
+    "profile": "Mein Profil",
+    "settings": "Einstellungen",
+    "notifications": "Benachrichtigungen",
+    "help": "Hilfe & Support",
+    "logout": "Abmelden"
+  },
+  "form": {
+    "details": "Details",
+    "recipient": "Empfänger",
+    "positions": "Positionen",
+    "addPosition": "Position hinzufügen",
+    "name": "Name",
+    "description": "Beschreibung",
+    "quantity": "Menge",
+    "unit": "Einheit",
+    "unitPrice": "Einzelpreis",
+    "totalPrice": "Gesamtpreis",
+    "retentionFee": "Sicherheitseinbehalt",
+    "percentage": "Prozentsatz (%)",
+    "companyName": "Firmenname",
+    "contactPerson": "Ansprechpartner",
+    "taxNumber": "Steuernummer",
+    "address": "Adresse",
+    "noProject": "Kein Projekt"
+  },
+  "summary": {
+    "netAmount": "Nettobetrag:",
+    "vat": "MwSt.:",
+    "totalAmount": "Gesamtbetrag:",
+    "retentionFee": "Sicherheitseinbehalt:",
+    "payoutAmount": "Auszahlungsbetrag:"
+  },
+  "table": {
+    "actions": {
+      "viewDetails": "Details anzeigen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "downloadPdf": "PDF herunterladen"
+    },
+    "pagination": {
+      "page": "Seite",
+      "of": "von",
+      "rowsPerPage": "Zeilen pro Seite:",
+      "showing": "Zeige {{from}} bis {{to}} von {{total}} {{entity}}",
+      "noResults": "Keine {{entity}} gefunden"
+    },
+    "search": {
+      "invoices": "Rechnungen durchsuchen...",
+      "customers": "Kunden durchsuchen...",
+      "articles": "Artikel durchsuchen...",
+      "projects": "Projekte durchsuchen...",
+      "reminders": "Mahnungen durchsuchen..."
+    },
+    "emptyState": {
+      "noData": "Keine Daten verfügbar",
+      "tryDifferentSearch": "Versuchen Sie andere Suchbegriffe"
+    }
+  }
+}

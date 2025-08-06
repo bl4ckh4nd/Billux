@@ -1,0 +1,94 @@
+{
+  "fields": {
+    "name": "Name",
+    "company": "Firma",
+    "contactPerson": "Ansprechpartner",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "address": "Adresse",
+    "street": "Straße",
+    "city": "Stadt",
+    "zipCode": "Postleitzahl",
+    "country": "Land",
+    "taxId": "Steuernummer",
+    "vatId": "USt-IdNr.",
+    "paymentTerms": "Zahlungsbedingungen",
+    "creditLimit": "Kreditlimit",
+    "notes": "Notizen",
+    "customerNumber": "Kundennummer",
+    "industry": "Branche",
+    "website": "Website"
+  },
+  "table": {
+    "customerNumber": "Kundennr.",
+    "name": "Name",
+    "company": "Firma",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "city": "Stadt",
+    "totalRevenue": "Gesamtumsatz",
+    "outstandingAmount": "Offener Betrag",
+    "lastInvoice": "Letzte Rechnung",
+    "status": "Status",
+    "actions": "Aktionen",
+    "createdAt": "Erstellt am",
+    "headers": {
+      "company": "Firma",
+      "contactPerson": "Ansprechpartner",
+      "contact": "Kontakt",
+      "address": "Adresse",
+      "projects": "Projekte",
+      "revenue": "Umsatz",
+      "lastActivity": "Letzte Aktivität"
+    }
+  },
+  "actions": {
+    "create": "Kunde erstellen",
+    "edit": "Kunde bearbeiten",
+    "delete": "Kunde löschen",
+    "view": "Kunde anzeigen",
+    "viewInvoices": "Rechnungen anzeigen",
+    "createInvoice": "Rechnung erstellen",
+    "sendEmail": "E-Mail senden",
+    "exportData": "Daten exportieren"
+  },
+  "validation": {
+    "nameRequired": "Name ist erforderlich",
+    "companyRequired": "Firma ist erforderlich",
+    "emailRequired": "E-Mail ist erforderlich",
+    "emailValid": "Gültige E-Mail-Adresse erforderlich",
+    "phoneRequired": "Telefonnummer ist erforderlich",
+    "addressRequired": "Adresse ist erforderlich",
+    "cityRequired": "Stadt ist erforderlich",
+    "zipCodeRequired": "Postleitzahl ist erforderlich",
+    "taxIdRequired": "Steuernummer ist erforderlich",
+    "vatIdValid": "Gültige USt-IdNr. erforderlich"
+  },
+  "messages": {
+    "customerCreated": "Kunde erfolgreich erstellt",
+    "customerUpdated": "Kunde erfolgreich aktualisiert",
+    "customerDeleted": "Kunde erfolgreich gelöscht",
+    "emailSent": "E-Mail erfolgreich gesendet",
+    "dataExported": "Daten erfolgreich exportiert"
+  },
+  "analytics": {
+    "totalCustomers": "Kunden gesamt",
+    "activeCustomers": "Aktive Kunden",
+    "newCustomers": "Neue Kunden",
+    "topCustomers": "Top-Kunden",
+    "customerRevenue": "Kundenumsatz",
+    "averageOrderValue": "Durchschnittlicher Auftragswert",
+    "customerRetention": "Kundenbindung",
+    "paymentBehavior": "Zahlungsverhalten"
+  },
+  "filters": {
+    "all": "Alle",
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "highValue": "Hochwertig",
+    "newCustomers": "Neue Kunden",
+    "searchPlaceholder": "Kunden suchen...",
+    "filterByCity": "Nach Stadt filtern",
+    "filterByIndustry": "Nach Branche filtern"
+  }
+}

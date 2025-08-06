@@ -1,0 +1,43 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "invoices": "Rechnungen",
+    "uploadOcr": "Upload & OCR",
+    "customers": "Kunden",
+    "articles": "Artikel",
+    "finances": "Finanzen",
+    "reminders": "Mahnungen",
+    "projects": "Aufträge",
+    "settings": "Einstellungen"
+  },
+  "breadcrumbs": {
+    "home": "Startseite",
+    "dashboard": "Dashboard",
+    "invoices": "Rechnungen",
+    "customers": "Kunden",
+    "articles": "Artikel",
+    "finances": "Finanzen",
+    "reminders": "Mahnungen",
+    "projects": "Aufträge",
+    "settings": "Einstellungen"
+  },
+  "pageTitle": {
+    "dashboard": "Dashboard",
+    "invoices": "Rechnungen",
+    "invoiceUpload": "Rechnungs-Upload",
+    "customers": "Kunden",
+    "articles": "Artikel",
+    "finances": "Finanzen",
+    "reminders": "Mahnwesen",
+    "projects": "Aufträge",
+    "settings": "Einstellungen"
+  },
+  "tabs": {
+    "overview": "Übersicht",
+    "details": "Details",
+    "history": "Verlauf",
+    "documents": "Dokumente",
+    "notes": "Notizen",
+    "settings": "Einstellungen"
+  }
+}

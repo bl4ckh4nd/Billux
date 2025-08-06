@@ -1,0 +1,94 @@
+{
+  "fields": {
+    "name": "Name",
+    "company": "Company",
+    "contactPerson": "Contact Person",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "street": "Street",
+    "city": "City",
+    "zipCode": "ZIP Code",
+    "country": "Country",
+    "taxId": "Tax ID",
+    "vatId": "VAT ID",
+    "paymentTerms": "Payment Terms",
+    "creditLimit": "Credit Limit",
+    "notes": "Notes",
+    "customerNumber": "Customer Number",
+    "industry": "Industry",
+    "website": "Website"
+  },
+  "table": {
+    "customerNumber": "Customer No.",
+    "name": "Name",
+    "company": "Company",
+    "email": "Email",
+    "phone": "Phone",
+    "city": "City",
+    "totalRevenue": "Total Revenue",
+    "outstandingAmount": "Outstanding Amount",
+    "lastInvoice": "Last Invoice",
+    "status": "Status",
+    "actions": "Actions",
+    "createdAt": "Created",
+    "headers": {
+      "company": "Company",
+      "contactPerson": "Contact Person",
+      "contact": "Contact",
+      "address": "Address",
+      "projects": "Projects",
+      "revenue": "Revenue",
+      "lastActivity": "Last Activity"
+    }
+  },
+  "actions": {
+    "create": "Create Customer",
+    "edit": "Edit Customer",
+    "delete": "Delete Customer",
+    "view": "View Customer",
+    "viewInvoices": "View Invoices",
+    "createInvoice": "Create Invoice",
+    "sendEmail": "Send Email",
+    "exportData": "Export Data"
+  },
+  "validation": {
+    "nameRequired": "Name is required",
+    "companyRequired": "Company is required",
+    "emailRequired": "Email is required",
+    "emailValid": "Valid email address required",
+    "phoneRequired": "Phone number is required",
+    "addressRequired": "Address is required",
+    "cityRequired": "City is required",
+    "zipCodeRequired": "ZIP code is required",
+    "taxIdRequired": "Tax ID is required",
+    "vatIdValid": "Valid VAT ID required"
+  },
+  "messages": {
+    "customerCreated": "Customer created successfully",
+    "customerUpdated": "Customer updated successfully",
+    "customerDeleted": "Customer deleted successfully",
+    "emailSent": "Email sent successfully",
+    "dataExported": "Data exported successfully"
+  },
+  "analytics": {
+    "totalCustomers": "Total Customers",
+    "activeCustomers": "Active Customers",
+    "newCustomers": "New Customers",
+    "topCustomers": "Top Customers",
+    "customerRevenue": "Customer Revenue",
+    "averageOrderValue": "Average Order Value",
+    "customerRetention": "Customer Retention",
+    "paymentBehavior": "Payment Behavior"
+  },
+  "filters": {
+    "all": "All",
+    "active": "Active",
+    "inactive": "Inactive",
+    "highValue": "High Value",
+    "newCustomers": "New Customers",
+    "searchPlaceholder": "Search customers...",
+    "filterByCity": "Filter by City",
+    "filterByIndustry": "Filter by Industry"
+  }
+}

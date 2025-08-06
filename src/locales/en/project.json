@@ -1,0 +1,117 @@
+{
+  "fields": {
+    "name": "Project Name",
+    "description": "Description",
+    "customer": "Customer",
+    "status": "Status",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "dueDate": "Due Date",
+    "budget": "Budget",
+    "actualCost": "Actual Cost",
+    "progress": "Progress",
+    "projectManager": "Project Manager",
+    "team": "Team",
+    "priority": "Priority",
+    "category": "Category",
+    "notes": "Notes",
+    "projectNumber": "Project Number"
+  },
+  "status": {
+    "planning": "Planning",
+    "active": "Active",
+    "onHold": "On Hold",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "review": "Review"
+  },
+  "priority": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High",
+    "urgent": "Urgent"
+  },
+  "table": {
+    "projectNumber": "Project No.",
+    "name": "Project Name",
+    "customer": "Customer",
+    "status": "Status",
+    "progress": "Progress",
+    "budget": "Budget",
+    "actualCost": "Actual Cost",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "dueDate": "Due Date",
+    "actions": "Actions",
+    "createdAt": "Created"
+  },
+  "actions": {
+    "create": "Create Project",
+    "edit": "Edit Project",
+    "delete": "Delete Project",
+    "view": "View Project",
+    "duplicate": "Duplicate Project",
+    "archive": "Archive Project",
+    "restore": "Restore Project",
+    "createInvoice": "Create Invoice",
+    "viewInvoices": "View Invoices",
+    "updateProgress": "Update Progress",
+    "addMilestone": "Add Milestone",
+    "viewTimeline": "View Timeline"
+  },
+  "validation": {
+    "nameRequired": "Project name is required",
+    "customerRequired": "Customer is required",
+    "statusRequired": "Status is required",
+    "startDateRequired": "Start date is required",
+    "budgetRequired": "Budget is required",
+    "budgetPositive": "Budget must be positive",
+    "endDateAfterStart": "End date must be after start date"
+  },
+  "messages": {
+    "projectCreated": "Project created successfully",
+    "projectUpdated": "Project updated successfully",
+    "projectDeleted": "Project deleted successfully",
+    "projectArchived": "Project archived successfully",
+    "projectRestored": "Project restored successfully",
+    "progressUpdated": "Progress updated successfully",
+    "milestoneAdded": "Milestone added successfully"
+  },
+  "analytics": {
+    "totalProjects": "Total Projects",
+    "activeProjects": "Active Projects",
+    "completedProjects": "Completed Projects",
+    "projectsOnTime": "Projects On Time",
+    "projectsOverdue": "Overdue Projects",
+    "averageProjectDuration": "Average Project Duration",
+    "budgetUtilization": "Budget Utilization",
+    "profitMargin": "Profit Margin",
+    "customerSatisfaction": "Customer Satisfaction",
+    "teamProductivity": "Team Productivity"
+  },
+  "filters": {
+    "all": "All",
+    "active": "Active",
+    "completed": "Completed",
+    "overdue": "Overdue",
+    "onTime": "On Time",
+    "searchPlaceholder": "Search projects...",
+    "filterByCustomer": "Filter by Customer",
+    "filterByStatus": "Filter by Status",
+    "filterByPriority": "Filter by Priority"
+  },
+  "milestones": {
+    "title": "Milestones",
+    "name": "Milestone",
+    "description": "Description",
+    "dueDate": "Due Date",
+    "status": "Status",
+    "completed": "Completed",
+    "pending": "Pending",
+    "overdue": "Overdue",
+    "addMilestone": "Add Milestone",
+    "editMilestone": "Edit Milestone",
+    "deleteMilestone": "Delete Milestone",
+    "markComplete": "Mark as Complete"
+  }
+}

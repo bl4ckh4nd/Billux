@@ -1,0 +1,43 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "invoices": "Invoices",
+    "uploadOcr": "Upload & OCR",
+    "customers": "Customers",
+    "articles": "Articles",
+    "finances": "Finances",
+    "reminders": "Reminders",
+    "projects": "Projects",
+    "settings": "Settings"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "invoices": "Invoices",
+    "customers": "Customers",
+    "articles": "Articles",
+    "finances": "Finances",
+    "reminders": "Reminders",
+    "projects": "Projects",
+    "settings": "Settings"
+  },
+  "pageTitle": {
+    "dashboard": "Dashboard",
+    "invoices": "Invoices",
+    "invoiceUpload": "Invoice Upload",
+    "customers": "Customers",
+    "articles": "Articles",
+    "finances": "Finances",
+    "reminders": "Reminders",
+    "projects": "Projects",
+    "settings": "Settings"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "details": "Details",
+    "history": "History",
+    "documents": "Documents",
+    "notes": "Notes",
+    "settings": "Settings"
+  }
+}

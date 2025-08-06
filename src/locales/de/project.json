@@ -1,0 +1,117 @@
+{
+  "fields": {
+    "name": "Projektname",
+    "description": "Beschreibung",
+    "customer": "Kunde",
+    "status": "Status",
+    "startDate": "Startdatum",
+    "endDate": "Enddatum",
+    "dueDate": "Fälligkeitsdatum",
+    "budget": "Budget",
+    "actualCost": "Ist-Kosten",
+    "progress": "Fortschritt",
+    "projectManager": "Projektleiter",
+    "team": "Team",
+    "priority": "Priorität",
+    "category": "Kategorie",
+    "notes": "Notizen",
+    "projectNumber": "Projektnummer"
+  },
+  "status": {
+    "planning": "Planung",
+    "active": "Aktiv",
+    "onHold": "Pausiert",
+    "completed": "Abgeschlossen",
+    "cancelled": "Abgebrochen",
+    "review": "Überprüfung"
+  },
+  "priority": {
+    "low": "Niedrig",
+    "medium": "Mittel",
+    "high": "Hoch",
+    "urgent": "Dringend"
+  },
+  "table": {
+    "projectNumber": "Projektnr.",
+    "name": "Projektname",
+    "customer": "Kunde",
+    "status": "Status",
+    "progress": "Fortschritt",
+    "budget": "Budget",
+    "actualCost": "Ist-Kosten",
+    "startDate": "Startdatum",
+    "endDate": "Enddatum",
+    "dueDate": "Fälligkeitsdatum",
+    "actions": "Aktionen",
+    "createdAt": "Erstellt am"
+  },
+  "actions": {
+    "create": "Projekt erstellen",
+    "edit": "Projekt bearbeiten",
+    "delete": "Projekt löschen",
+    "view": "Projekt anzeigen",
+    "duplicate": "Projekt duplizieren",
+    "archive": "Projekt archivieren",
+    "restore": "Projekt wiederherstellen",
+    "createInvoice": "Rechnung erstellen",
+    "viewInvoices": "Rechnungen anzeigen",
+    "updateProgress": "Fortschritt aktualisieren",
+    "addMilestone": "Meilenstein hinzufügen",
+    "viewTimeline": "Zeitplan anzeigen"
+  },
+  "validation": {
+    "nameRequired": "Projektname ist erforderlich",
+    "customerRequired": "Kunde ist erforderlich",
+    "statusRequired": "Status ist erforderlich",
+    "startDateRequired": "Startdatum ist erforderlich",
+    "budgetRequired": "Budget ist erforderlich",
+    "budgetPositive": "Budget muss positiv sein",
+    "endDateAfterStart": "Enddatum muss nach Startdatum liegen"
+  },
+  "messages": {
+    "projectCreated": "Projekt erfolgreich erstellt",
+    "projectUpdated": "Projekt erfolgreich aktualisiert",
+    "projectDeleted": "Projekt erfolgreich gelöscht",
+    "projectArchived": "Projekt erfolgreich archiviert",
+    "projectRestored": "Projekt erfolgreich wiederhergestellt",
+    "progressUpdated": "Fortschritt erfolgreich aktualisiert",
+    "milestoneAdded": "Meilenstein erfolgreich hinzugefügt"
+  },
+  "analytics": {
+    "totalProjects": "Projekte gesamt",
+    "activeProjects": "Aktive Projekte",
+    "completedProjects": "Abgeschlossene Projekte",
+    "projectsOnTime": "Termingerechte Projekte",
+    "projectsOverdue": "Überfällige Projekte",
+    "averageProjectDuration": "Durchschnittliche Projektdauer",
+    "budgetUtilization": "Budget-Auslastung",
+    "profitMargin": "Gewinnmarge",
+    "customerSatisfaction": "Kundenzufriedenheit",
+    "teamProductivity": "Team-Produktivität"
+  },
+  "filters": {
+    "all": "Alle",
+    "active": "Aktiv",
+    "completed": "Abgeschlossen",
+    "overdue": "Überfällig",
+    "onTime": "Termingerecht",
+    "searchPlaceholder": "Projekte suchen...",
+    "filterByCustomer": "Nach Kunde filtern",
+    "filterByStatus": "Nach Status filtern",
+    "filterByPriority": "Nach Priorität filtern"
+  },
+  "milestones": {
+    "title": "Meilensteine",
+    "name": "Meilenstein",
+    "description": "Beschreibung",
+    "dueDate": "Fälligkeitsdatum",
+    "status": "Status",
+    "completed": "Abgeschlossen",
+    "pending": "Ausstehend",
+    "overdue": "Überfällig",
+    "addMilestone": "Meilenstein hinzufügen",
+    "editMilestone": "Meilenstein bearbeiten",
+    "deleteMilestone": "Meilenstein löschen",
+    "markComplete": "Als abgeschlossen markieren"
+  }
+}

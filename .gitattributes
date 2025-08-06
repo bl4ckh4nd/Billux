@@ -1,0 +1,154 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.c text
+*.h text
+*.cpp text
+*.hpp text
+*.java text
+*.js text
+*.jsx text
+*.ts text
+*.tsx text
+*.json text
+*.css text
+*.scss text
+*.sass text
+*.less text
+*.html text
+*.htm text
+*.xml text
+*.md text
+*.txt text
+*.yaml text
+*.yml text
+*.toml text
+*.ini text
+*.cfg text
+*.config text
+*.sh text eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Package manager files
+package.json text
+package-lock.json text
+yarn.lock text
+pnpm-lock.yaml text
+.nvmrc text
+.node-version text
+
+# Configuration files
+.gitignore text
+.gitattributes text
+.editorconfig text
+.eslintrc* text
+.prettierrc* text
+tsconfig.json text
+jsconfig.json text
+vite.config.* text
+postcss.config.* text
+tailwind.config.* text
+.env* text
+
+# Documentation
+README* text
+CHANGELOG* text
+LICENSE* text
+CONTRIBUTING* text
+CLAUDE.md text
+
+# Declare files that will always have CRLF line endings on checkout.
+*.sln text eol=crlf
+*.csproj text eol=crlf
+*.vbproj text eol=crlf
+*.vcxproj text eol=crlf
+*.vcproj text eol=crlf
+
+# Declare files that will always have LF line endings on checkout.
+*.sh text eol=lf
+Makefile text eol=lf
+makefile text eol=lf
+Dockerfile text eol=lf
+*.dockerfile text eol=lf
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.bmp binary
+*.tiff binary
+*.tif binary
+*.svg binary
+*.webp binary
+*.avif binary
+
+# Fonts
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+*.tgz binary
+*.rar binary
+*.7z binary
+
+# Audio/Video
+*.mp3 binary
+*.mp4 binary
+*.avi binary
+*.mov binary
+*.wmv binary
+*.flv binary
+*.wav binary
+*.ogg binary
+
+# Documents
+*.pdf binary
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
+
+# Executables
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+*.app binary
+
+# Node.js specific
+node_modules/ export-ignore
+*.log export-ignore
+.DS_Store export-ignore
+Thumbs.db export-ignore
+desktop.ini export-ignore
+
+# IDE and editor files
+.vscode/ export-ignore
+.idea/ export-ignore
+*.swp export-ignore
+*.swo export-ignore
+*~ export-ignore
+
+# Build artifacts
+dist/ export-ignore
+build/ export-ignore
+coverage/ export-ignore
+.nyc_output/ export-ignore
+
+# Temporary files
+*.tmp export-ignore
+*.temp export-ignore
+*.cache export-ignore

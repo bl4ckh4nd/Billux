@@ -1,0 +1,154 @@
+{
+  "actions": {
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import",
+    "print": "Print",
+    "download": "Download",
+    "upload": "Upload",
+    "view": "View",
+    "preview": "Preview",
+    "duplicate": "Duplicate"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "pending": "Pending",
+    "completed": "Completed",
+    "draft": "Draft",
+    "processing": "Processing",
+    "failed": "Failed",
+    "success": "Success"
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Valid email address required",
+    "phone": "Valid phone number required",
+    "minLength": "At least {{count}} characters required",
+    "maxLength": "Maximum {{count}} characters allowed",
+    "numeric": "Only numbers allowed",
+    "positive": "Value must be positive",
+    "dateFormat": "Valid date required"
+  },
+  "messages": {
+    "loading": "Loading...",
+    "noData": "No data available",
+    "error": "An error occurred",
+    "success": "Successfully saved",
+    "confirmDelete": "Are you sure you want to delete this item?",
+    "unsavedChanges": "You have unsaved changes. Do you want to continue?",
+    "networkError": "Network error. Please try again.",
+    "serverError": "Server error. Please contact support."
+  },
+  "dateTime": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "tomorrow": "Tomorrow",
+    "thisWeek": "This Week",
+    "lastWeek": "Last Week",
+    "thisMonth": "This Month",
+    "lastMonth": "Last Month",
+    "thisYear": "This Year",
+    "lastYear": "Last Year"
+  },
+  "units": {
+    "piece": "Piece",
+    "hour": "Hour",
+    "day": "Day",
+    "week": "Week",
+    "month": "Month",
+    "year": "Year",
+    "kilogram": "kg",
+    "gram": "g",
+    "liter": "l",
+    "meter": "m",
+    "centimeter": "cm",
+    "squareMeter": "m²"
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "first": "First",
+    "last": "Last",
+    "page": "Page",
+    "of": "of",
+    "itemsPerPage": "Items per page",
+    "showing": "Showing {{from}} to {{to}} of {{total}} entries"
+  },
+  "search": {
+    "placeholder": "Search... (⌘K)",
+    "clear": "Clear search",
+    "noResults": "No results found",
+    "searchDotDotDot": "Search..."
+  },
+  "sidebar": {
+    "toggle": "Toggle sidebar"
+  },
+  "menu": {
+    "profile": "My Profile",
+    "settings": "Settings",
+    "notifications": "Notifications",
+    "help": "Help & Support",
+    "logout": "Logout"
+  },
+  "form": {
+    "details": "Details",
+    "recipient": "Recipient",
+    "positions": "Positions",
+    "addPosition": "Add Position",
+    "name": "Name",
+    "description": "Description",
+    "quantity": "Quantity",
+    "unit": "Unit",
+    "unitPrice": "Unit Price",
+    "totalPrice": "Total Price",
+    "retentionFee": "Retention Fee",
+    "percentage": "Percentage (%)",
+    "companyName": "Company Name",
+    "contactPerson": "Contact Person",
+    "taxNumber": "Tax Number",
+    "address": "Address",
+    "noProject": "No Project"
+  },
+  "summary": {
+    "netAmount": "Net Amount:",
+    "vat": "VAT:",
+    "totalAmount": "Total Amount:",
+    "retentionFee": "Retention Fee:",
+    "payoutAmount": "Payout Amount:"
+  },
+  "table": {
+    "actions": {
+      "viewDetails": "View Details",
+      "edit": "Edit",
+      "delete": "Delete",
+      "downloadPdf": "Download PDF"
+    },
+    "pagination": {
+      "page": "Page",
+      "of": "of",
+      "rowsPerPage": "Rows per page:",
+      "showing": "Showing {{from}} to {{to}} of {{total}} {{entity}}",
+      "noResults": "No {{entity}} found"
+    },
+    "search": {
+      "invoices": "Search invoices...",
+      "customers": "Search customers...",
+      "articles": "Search articles...",
+      "projects": "Search projects...",
+      "reminders": "Search reminders..."
+    },
+    "emptyState": {
+      "noData": "No data available",
+      "tryDifferentSearch": "Try different search terms"
+    }
+  }
+}

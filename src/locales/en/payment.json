@@ -1,0 +1,140 @@
+{
+  "methods": {
+    "cash": "Cash",
+    "bank_transfer": "Bank Transfer",
+    "credit_card": "Credit Card",
+    "debit_card": "Debit Card",
+    "paypal": "PayPal",
+    "stripe": "Stripe",
+    "sepa": "SEPA Direct Debit",
+    "check": "Check",
+    "other": "Other"
+  },
+  "status": {
+    "pending": "Pending",
+    "processing": "Processing",
+    "completed": "Completed",
+    "failed": "Failed",
+    "cancelled": "Cancelled",
+    "refunded": "Refunded",
+    "partial": "Partial"
+  },
+  "fields": {
+    "amount": "Amount",
+    "method": "Payment Method",
+    "date": "Payment Date",
+    "reference": "Reference",
+    "description": "Description",
+    "transactionId": "Transaction ID",
+    "paymentTerms": "Payment Terms",
+    "dueDate": "Due Date",
+    "discount": "Discount",
+    "discountRate": "Discount Rate",
+    "discountDays": "Discount Days",
+    "paymentLink": "Payment Link",
+    "notes": "Notes"
+  },
+  "table": {
+    "invoiceNumber": "Invoice No.",
+    "amount": "Amount",
+    "method": "Payment Method",
+    "date": "Payment Date",
+    "status": "Status",
+    "reference": "Reference",
+    "actions": "Actions",
+    "createdAt": "Created"
+  },
+  "actions": {
+    "recordPayment": "Record Payment",
+    "editPayment": "Edit Payment",
+    "deletePayment": "Delete Payment",
+    "refundPayment": "Refund Payment",
+    "generateLink": "Generate Payment Link",
+    "sendLink": "Send Payment Link",
+    "viewReceipt": "View Receipt",
+    "downloadReceipt": "Download Receipt",
+    "exportPayments": "Export Payments"
+  },
+  "validation": {
+    "amountRequired": "Amount is required",
+    "amountPositive": "Amount must be positive",
+    "methodRequired": "Payment method is required",
+    "dateRequired": "Payment date is required",
+    "referenceRequired": "Reference is required",
+    "dueDateRequired": "Due date is required",
+    "discountRateValid": "Discount rate must be between 0 and 100",
+    "discountDaysValid": "Discount days must be positive"
+  },
+  "messages": {
+    "paymentRecorded": "Payment recorded successfully",
+    "paymentUpdated": "Payment updated successfully",
+    "paymentDeleted": "Payment deleted successfully",
+    "paymentRefunded": "Payment refunded successfully",
+    "linkGenerated": "Payment link generated successfully",
+    "linkSent": "Payment link sent successfully",
+    "receiptGenerated": "Receipt generated successfully",
+    "dataExported": "Payment data exported successfully",
+    "paymentFailed": "Payment failed",
+    "insufficientFunds": "Insufficient funds",
+    "paymentProcessing": "Payment is being processed"
+  },
+  "reminders": {
+    "title": "Payment Reminders",
+    "level1": "1st Reminder",
+    "level2": "2nd Reminder",
+    "level3": "3rd Reminder",
+    "level4": "4th Reminder",
+    "level5": "Collection",
+    "daysOverdue": "Days Overdue",
+    "reminderFee": "Reminder Fee",
+    "interestRate": "Interest Rate",
+    "totalAmount": "Total Amount",
+    "sendReminder": "Send Reminder",
+    "scheduleReminder": "Schedule Reminder",
+    "viewHistory": "View Reminder History",
+    "escalateToCollection": "Escalate to Collection"
+  },
+  "analytics": {
+    "totalPayments": "Total Payments",
+    "totalAmount": "Total Amount",
+    "averagePaymentTime": "Average Payment Time",
+    "paymentsByMethod": "Payments by Method",
+    "overduePayments": "Overdue Payments",
+    "collectionRate": "Collection Rate",
+    "cashFlow": "Cash Flow",
+    "monthlyRevenue": "Monthly Revenue",
+    "yearlyRevenue": "Yearly Revenue",
+    "paymentTrends": "Payment Trends"
+  },
+  "terms": {
+    "immediately": "Immediately",
+    "net7": "Net 7 Days",
+    "net14": "Net 14 Days",
+    "net30": "Net 30 Days",
+    "net60": "Net 60 Days",
+    "net90": "Net 90 Days",
+    "custom": "Custom"
+  },
+  "bankDetails": {
+    "title": "Bank Details",
+    "accountHolder": "Account Holder",
+    "bankName": "Bank Name",
+    "iban": "IBAN",
+    "bic": "BIC",
+    "accountNumber": "Account Number",
+    "sortCode": "Sort Code",
+    "reference": "Reference"
+  },
+  "modal": {
+    "recordPayment": "Record Payment",
+    "paymentDate": "Payment Date",
+    "amount": "Amount",
+    "paymentMethod": "Payment Method",
+    "invoiceInformation": "Invoice Information",
+    "cancel": "Cancel",
+    "recordPaymentButton": "Record Payment",
+    "createStorno": "Create Cancellation",
+    "stornoReason": "Cancellation Reason",
+    "createStornoButton": "Create Cancellation"
+  }
+}
