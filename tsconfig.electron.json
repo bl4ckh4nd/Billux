@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "outDir": "dist/electron",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "target": "ES2020",
+    "jsx": "react-jsx",
+    "noEmit": false,
+    "isolatedModules": false,
+    "allowImportingTsExtensions": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  "include": ["src/electron/preload.ts", "src/server/orpc/router.ts", "src/types/electron-orpc.d.ts"],
+  "exclude": []
+}

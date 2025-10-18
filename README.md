@@ -319,6 +319,26 @@ npm run dev
 npm run lint
 ```
 
+### 🖥️ Electron Desktop Shell
+
+```bash
+# Build the preload bridge and shared router artifacts
+npm run build:electron
+
+# With the Vite dev server running in another terminal, launch Electron
+npm run electron:dev
+```
+
+The Electron shell loads the Vite development server by default. The preload script (`src/electron/preload.ts`) wires the
+`@orpc/electron-adapter` bridge to the TanStack Start router exposed from `src/server/orpc/router.ts` and publishes it on
+`window.rpc`. Renderer components can import the helpers in `src/lib/orpcClient.ts` to call procedures, for example:
+
+```tsx
+import { useRpcQuery } from '../lib/orpcClient';
+
+const { data, isLoading } = useRpcQuery('diagnostics.healthcheck');
+```
+
 ### **Contribution Guidelines**
 - Follow the existing code style and TypeScript patterns
 - Add tests for new features and bug fixes
