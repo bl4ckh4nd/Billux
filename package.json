@@ -7,9 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:electron": "tsc -p tsconfig.electron.json",
+    "electron:dev": "npm run build:electron && VITE_DEV_SERVER_URL=http://localhost:5173 electron ./electron-main.mjs"
   },
   "dependencies": {
+    "@orpc/electron-adapter": "file:packages/orpc-electron-adapter",
     "@hookform/resolvers": "^5.1.1",
     "@mistralai/mistralai": "^1.7.3",
     "@react-pdf/renderer": "^4.3.0",
@@ -41,7 +44,9 @@
     "zustand": "^5.0.6"
   },
   "devDependencies": {
+    "@types/electron": "^1.6.12",
     "@eslint/js": "^9.30.1",
+    "electron": "^33.2.0",
     "@types/i18next": "^12.1.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
