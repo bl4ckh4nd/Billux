@@ -36,9 +36,13 @@ interface TabConfig {
 
 interface InvoiceOverviewProps {
   onInvoiceClick?: (invoiceId: string) => void;
+  onCreateInvoice?: () => void;
 }
 
-const InvoiceOverview: React.FC<InvoiceOverviewProps> = ({ onInvoiceClick }) => {
+const InvoiceOverview: React.FC<InvoiceOverviewProps> = ({
+  onInvoiceClick,
+  onCreateInvoice
+}) => {
   const { data: invoices = [], isLoading } = useInvoices();
   const deleteInvoice = useDeleteInvoice();
   const [currentView, setCurrentView] = useState<'overview' | 'detail' | 'form'>('overview');
@@ -161,7 +165,11 @@ const InvoiceOverview: React.FC<InvoiceOverviewProps> = ({ onInvoiceClick }) => 
   };
 
   const handleNewInvoice = () => {
-    setCurrentView('form');
+    if (onCreateInvoice) {
+      onCreateInvoice();
+    } else {
+      setCurrentView('form');
+    }
   };
 
   const handleBackToOverview = () => {
