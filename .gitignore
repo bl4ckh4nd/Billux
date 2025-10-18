@@ -25,3 +25,8 @@ dist-ssr
 *.md
 *.png
 *.env
+
+# Drizzle artifacts
+apps/web/drizzle/*.db
+apps/web/drizzle/*.sqlite
+apps/web/drizzle/*.sqlite3
