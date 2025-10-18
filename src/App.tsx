@@ -17,20 +17,9 @@ import ProjectDetail from './components/ProjectDetail';
 import Reminders from './components/Reminders';
 import Finance from './components/Finance';
 import SettingsForm from './components/settings/SettingsForm';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useTranslation, I18nextProvider } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { useUIStore } from './stores/uiStore';
 import { useRouteNamespaces } from './hooks/useNamespaceLoading';
-import i18n from './lib/i18n';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 5 * 60 * 1000, // 5 minutes
-      cacheTime: 10 * 60 * 1000, // 10 minutes
-    },
-  },
-});
 
 function App() {
   const [currentView, setCurrentView] = useState<'dashboard' | 'invoice' | 'invoice-new' | 'invoice-add' | 'invoice-edit' | 'invoice-detail' | 'invoice-upload' | 'customers' | 'customer-detail' | 'articles' | 'article-detail' | 'finances' | 'projects' | 'project-detail' | 'reminders' | 'settings'>('dashboard');
@@ -166,47 +155,43 @@ function App() {
   };
 
   return (
-    <I18nextProvider i18n={i18n}>
-      <QueryClientProvider client={queryClient}>
-        <div className="flex h-screen" style={{ backgroundColor: 'var(--bg-secondary)' }}>
-        {/* Sidebar */}
-        <div className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block`}>
-          <Sidebar onNavigate={setCurrentView} currentView={currentView} />
-        </div>
-        
-        {/* Mobile sidebar overlay */}
-        {isSidebarOpen && (
-          <div 
-            className="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden"
-            onClick={() => setIsSidebarOpen(false)}
-          />
-        )}
-
-        {/* Main content area */}
-        <div className="flex-1 flex flex-col overflow-hidden">
-          {/* Header */}
-          <Header 
-            onSidebarToggle={() => setIsSidebarOpen(!isSidebarOpen)}
-            currentPage={getPageTitle()}
-          />
-          
-          {/* Main content */}
-          <main className="flex-1 overflow-x-hidden overflow-y-auto p-4 sm:p-6">
-            {loading && !areNamespacesLoaded ? (
-              <div className="flex items-center justify-center h-64">
-                <div className="text-center">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto"></div>
-                  <p className="mt-4 text-gray-600">Loading translations...</p>
-                </div>
-              </div>
-            ) : (
-              renderContent()
-            )}
-          </main>
-        </div>
+    <div className="flex h-screen" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+      {/* Sidebar */}
+      <div className={`${isSidebarOpen ? 'block' : 'hidden'} lg:block`}>
+        <Sidebar onNavigate={setCurrentView} currentView={currentView} />
       </div>
-      </QueryClientProvider>
-    </I18nextProvider>
+
+      {/* Mobile sidebar overlay */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
+      {/* Main content area */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        {/* Header */}
+        <Header
+          onSidebarToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+          currentPage={getPageTitle()}
+        />
+
+        {/* Main content */}
+        <main className="flex-1 overflow-x-hidden overflow-y-auto p-4 sm:p-6">
+          {loading && !areNamespacesLoaded ? (
+            <div className="flex items-center justify-center h-64">
+              <div className="text-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto"></div>
+                <p className="mt-4 text-gray-600">Loading translations...</p>
+              </div>
+            </div>
+          ) : (
+            renderContent()
+          )}
+        </main>
+      </div>
+    </div>
   );
 }
 
