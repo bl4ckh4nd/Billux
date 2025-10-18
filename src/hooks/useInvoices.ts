@@ -1,18 +1,19 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { api } from '../lib/api';
+import { api, orpc } from '../lib/api';
 import type { CreateInvoiceDTO, Invoice, Payment } from '../types/invoice';
 
 export const useInvoices = () => {
   return useQuery({
-    queryKey: ['invoices'],
-    queryFn: api.invoices.getAll
+    ...orpc.invoices.getAll.queryOptions()
   });
 };
 
 export const useInvoice = (id: string) => {
   return useQuery({
-    queryKey: ['invoice', id],
-    queryFn: () => api.invoices.get(id)
+    ...orpc.invoices.get.queryOptions({
+      input: { id },
+      enabled: !!id
+    })
   });
 };
 
@@ -22,7 +23,7 @@ export const useCreateInvoice = () => {
   return useMutation({
     mutationFn: (data: CreateInvoiceDTO) => api.invoices.create(data),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['invoices'] });
+      queryClient.invalidateQueries({ queryKey: orpc.invoices.getAll.queryKey() });
     }
   });
 };
@@ -34,8 +35,8 @@ export const useAddPayment = () => {
     mutationFn: ({ invoiceId, payment }: { invoiceId: string, payment: Omit<Payment, 'id'> }) => 
       api.invoices.addPayment(invoiceId, payment),
     onSuccess: (_, variables) => {
-      queryClient.invalidateQueries({ queryKey: ['invoice', variables.invoiceId] });
-      queryClient.invalidateQueries({ queryKey: ['invoices'] });
+      queryClient.invalidateQueries({ queryKey: orpc.invoices.get.queryKey({ input: { id: variables.invoiceId } }) });
+      queryClient.invalidateQueries({ queryKey: orpc.invoices.getAll.queryKey() });
     }
   });
 };
@@ -46,7 +47,7 @@ export const useDeleteInvoice = () => {
   return useMutation({
     mutationFn: (id: string) => api.invoices.delete(id),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['invoices'] });
+      queryClient.invalidateQueries({ queryKey: orpc.invoices.getAll.queryKey() });
     }
   });
 };
@@ -58,8 +59,8 @@ export const useUpdateInvoice = () => {
     mutationFn: ({ id, data }: { id: string; data: Partial<Invoice> }) => 
       api.invoices.update(id, data),
     onSuccess: (_, variables) => {
-      queryClient.invalidateQueries({ queryKey: ['invoices'] });
-      queryClient.invalidateQueries({ queryKey: ['invoice', variables.id] });
+      queryClient.invalidateQueries({ queryKey: orpc.invoices.getAll.queryKey() });
+      queryClient.invalidateQueries({ queryKey: orpc.invoices.get.queryKey({ input: { id: variables.id } }) });
     }
   });
 };

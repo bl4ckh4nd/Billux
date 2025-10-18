@@ -1,18 +1,22 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { api } from '../lib/api';
+import { api, orpc } from '../lib/api';
 import { ReminderLevel, ReminderStatus } from '../types/reminder';
 
 export function useOverdueInvoices() {
   return useQuery({
-    queryKey: ['overdue-invoices'],
-    queryFn: api.reminders.getOverdueInvoices,
+    ...orpc.reminders.getOverdueInvoices.queryOptions()
   });
 }
 
 export function useReminders(invoiceId?: string) {
+  if (invoiceId) {
+    return useQuery({
+      ...orpc.reminders.getByInvoice.queryOptions({ input: { invoiceId } })
+    });
+  }
+
   return useQuery({
-    queryKey: ['reminders', invoiceId],
-    queryFn: () => invoiceId ? api.reminders.getByInvoice(invoiceId) : api.reminders.getAll(),
+    ...orpc.reminders.getAll.queryOptions()
   });
 }
 
@@ -23,10 +27,10 @@ export function useCreateReminder() {
     mutationFn: ({ invoiceId, level }: { invoiceId: string; level: ReminderLevel }) =>
       api.reminders.create(invoiceId, level),
     onSuccess: (reminder) => {
-      queryClient.invalidateQueries({ queryKey: ['reminders'] });
-      queryClient.invalidateQueries({ queryKey: ['reminders', reminder.invoiceId] });
-      queryClient.invalidateQueries({ queryKey: ['overdue-invoices'] });
-      queryClient.invalidateQueries({ queryKey: ['invoices'] });
+      queryClient.invalidateQueries({ queryKey: orpc.reminders.getAll.queryKey() });
+      queryClient.invalidateQueries({ queryKey: orpc.reminders.getByInvoice.queryKey({ input: { invoiceId: reminder.invoiceId } }) });
+      queryClient.invalidateQueries({ queryKey: orpc.reminders.getOverdueInvoices.queryKey() });
+      queryClient.invalidateQueries({ queryKey: orpc.invoices.getAll.queryKey() });
     },
   });
 }
@@ -37,8 +41,8 @@ export function useSendReminder() {
   return useMutation({
     mutationFn: (reminderId: string) => api.reminders.send(reminderId),
     onSuccess: (reminder) => {
-      queryClient.invalidateQueries({ queryKey: ['reminders'] });
-      queryClient.invalidateQueries({ queryKey: ['reminders', reminder.invoiceId] });
+      queryClient.invalidateQueries({ queryKey: orpc.reminders.getAll.queryKey() });
+      queryClient.invalidateQueries({ queryKey: orpc.reminders.getByInvoice.queryKey({ input: { invoiceId: reminder.invoiceId } }) });
     },
   });
 }
@@ -50,24 +54,22 @@ export function useUpdateReminderStatus() {
     mutationFn: ({ reminderId, status }: { reminderId: string; status: ReminderStatus }) =>
       api.reminders.updateStatus(reminderId, status),
     onSuccess: (reminder) => {
-      queryClient.invalidateQueries({ queryKey: ['reminders'] });
-      queryClient.invalidateQueries({ queryKey: ['reminders', reminder.invoiceId] });
-      queryClient.invalidateQueries({ queryKey: ['invoices'] });
+      queryClient.invalidateQueries({ queryKey: orpc.reminders.getAll.queryKey() });
+      queryClient.invalidateQueries({ queryKey: orpc.reminders.getByInvoice.queryKey({ input: { invoiceId: reminder.invoiceId } }) });
+      queryClient.invalidateQueries({ queryKey: orpc.invoices.getAll.queryKey() });
     },
   });
 }
 
 export function useReminderStatistics() {
   return useQuery({
-    queryKey: ['reminder-statistics'],
-    queryFn: api.reminders.getStatistics,
+    ...orpc.reminders.getStatistics.queryOptions()
   });
 }
 
 export function useReminderTemplates() {
   return useQuery({
-    queryKey: ['reminder-templates'],
-    queryFn: api.reminders.getTemplates,
+    ...orpc.reminders.getTemplates.queryOptions()
   });
 }
 
@@ -75,8 +77,7 @@ export function useReminderTemplates() {
 export function useInvoiceReminders(invoiceId: string) {
   const { data: reminders, isLoading: remindersLoading } = useReminders(invoiceId);
   const { data: invoice } = useQuery({
-    queryKey: ['invoices', invoiceId],
-    queryFn: () => api.invoices.get(invoiceId),
+    ...orpc.invoices.get.queryOptions({ input: { id: invoiceId } })
   });
 
   const canSendReminder = (level: ReminderLevel): boolean => {

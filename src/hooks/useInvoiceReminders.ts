@@ -1,13 +1,15 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { api } from '../lib/api';
+import { api, orpc } from '../lib/api';
 import type { Reminder, ReminderLevel } from '../types/reminder';
 
 export const useInvoiceReminders = (invoiceId: string | undefined) => {
-  return useQuery<Reminder[], Error>({
-    queryKey: ['reminders', 'invoice', invoiceId],
-    queryFn: () => invoiceId ? api.reminders.getByInvoice(invoiceId) : Promise.resolve([]),
-    enabled: !!invoiceId,
-    staleTime: 30000,
+  return useQuery({
+    ...orpc.reminders.getByInvoice.queryOptions({
+      input: invoiceId ? { invoiceId } : undefined,
+      enabled: !!invoiceId,
+      initialData: [] as Reminder[],
+      staleTime: 30000
+    })
   });
 };
 
@@ -18,9 +20,11 @@ export const useCreateReminder = () => {
     mutationFn: ({ invoiceId, level }: { invoiceId: string; level: ReminderLevel }) => 
       api.reminders.create(invoiceId, level),
     onSuccess: (_, variables) => {
-      queryClient.invalidateQueries({ queryKey: ['reminders', 'invoice', variables.invoiceId] });
-      queryClient.invalidateQueries({ queryKey: ['invoice', variables.invoiceId] });
-      queryClient.invalidateQueries({ queryKey: ['invoices'] });
+      queryClient.invalidateQueries({
+        queryKey: orpc.reminders.getByInvoice.queryKey({ input: { invoiceId: variables.invoiceId } })
+      });
+      queryClient.invalidateQueries({ queryKey: orpc.invoices.get.queryKey({ input: { id: variables.invoiceId } }) });
+      queryClient.invalidateQueries({ queryKey: orpc.invoices.getAll.queryKey() });
     },
   });
 };
@@ -40,9 +44,11 @@ export const useSendReminder = () => {
       }
     }) => api.reminders.create(invoiceId, reminderData.level),
     onSuccess: (_, variables) => {
-      queryClient.invalidateQueries({ queryKey: ['reminders', 'invoice', variables.invoiceId] });
-      queryClient.invalidateQueries({ queryKey: ['invoice', variables.invoiceId] });
-      queryClient.invalidateQueries({ queryKey: ['invoices'] });
+      queryClient.invalidateQueries({
+        queryKey: orpc.reminders.getByInvoice.queryKey({ input: { invoiceId: variables.invoiceId } })
+      });
+      queryClient.invalidateQueries({ queryKey: orpc.invoices.get.queryKey({ input: { id: variables.invoiceId } }) });
+      queryClient.invalidateQueries({ queryKey: orpc.invoices.getAll.queryKey() });
       queryClient.invalidateQueries({ queryKey: ['reminder-stats', 'invoice', variables.invoiceId] });
     },
   });
@@ -54,8 +60,8 @@ export const useReminderStats = (invoiceId: string | undefined) => {
     queryFn: async () => {
       if (!invoiceId) return null;
       
-      const reminders = await api.reminders.getByInvoice(invoiceId);
-      const invoice = await api.invoices.get(invoiceId);
+      const reminders = await orpc.reminders.getByInvoice.call({ invoiceId });
+      const invoice = await orpc.invoices.get.call({ id: invoiceId });
       
       if (!invoice) return null;
       

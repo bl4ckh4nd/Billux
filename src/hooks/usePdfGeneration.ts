@@ -1,26 +1,25 @@
 import { useQuery, useMutation } from '@tanstack/react-query';
 import type { PdfGenerationOptions, PdfPreviewData } from '../types/pdf';
-import { api } from '../lib/api';
+import type { Invoice } from '../types/invoice';
+import { api, orpc } from '../lib/api';
 
 export const usePdfPreview = (options: PdfGenerationOptions) => {
-  return useQuery<PdfPreviewData>({
-    queryKey: ['pdfPreview', options],
-    queryFn: async () => {
-      console.log('PDF Preview Request:', {
-        options
-      });
+  const baseOptions = orpc.pdf.preview.queryOptions({ input: options });
+
+  return useQuery({
+    ...baseOptions,
+    queryFn: async ctx => {
+      console.log('PDF Preview Request:', { options });
 
       try {
-        // Use the mock API directly instead of making HTTP requests
-        const data = await api.pdf.preview(options);
-        
+        const data = await baseOptions.queryFn(ctx);
         console.log('PDF Preview Response:', data);
         return data;
       } catch (error) {
         console.error('PDF Preview Error:', error);
         throw error;
       }
-    },
+    }
   });
 };
 
@@ -48,7 +47,7 @@ export const usePdfGeneration = (invoice: Invoice, includeZugferd = true) => {
     queryFn: async () => {
       console.log(`Generating PDF ${includeZugferd ? 'with' : 'without'} ZuGFERD for invoice:`, invoice.id);
       try {
-        const result = await api.pdf.preview({
+        const result = await orpc.pdf.preview.call({
           template: 'invoice',
           documentId: invoice.id,
           language: 'de',

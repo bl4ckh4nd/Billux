@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { api } from '../lib/api';
+import { api, orpc } from '../lib/api';
 import { useArticleStore } from '../stores/articleStore';
 import type { CreateArticleDTO, UpdateArticleDTO } from '../types/article';
 
@@ -9,7 +9,7 @@ export const useArticles = () => {
   return useQuery({
     queryKey: ['articles'],
     queryFn: async () => {
-      const articles = await api.articles.getAll();
+      const articles = await orpc.articles.getAll.call();
       setCachedArticles(articles);
       return articles;
     },
@@ -41,7 +41,7 @@ export const useCreateArticle = () => {
       }
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['articles'] });
+      queryClient.invalidateQueries({ queryKey: orpc.articles.getAll.queryKey() });
     },
   });
 };
@@ -66,7 +66,7 @@ export const useUpdateArticle = () => {
       }
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['articles'] });
+      queryClient.invalidateQueries({ queryKey: orpc.articles.getAll.queryKey() });
     },
   });
 };
@@ -91,7 +91,7 @@ export const useDeleteArticle = () => {
       }
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['articles'] });
+      queryClient.invalidateQueries({ queryKey: orpc.articles.getAll.queryKey() });
     },
   });
 };
