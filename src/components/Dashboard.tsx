@@ -112,11 +112,20 @@ const formatCurrency = (value: number, language: string = 'de') => {
 };
 
 interface DashboardProps {
-  onNavigate?: (view: string) => void;
+  onCreateInvoice?: () => void;
+  onInvoicesNavigate?: () => void;
+  onCustomersNavigate?: () => void;
+  onProjectsNavigate?: () => void;
   onInvoiceClick?: (invoiceId: string) => void;
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ onNavigate, onInvoiceClick }) => {
+const Dashboard: React.FC<DashboardProps> = ({
+  onCreateInvoice,
+  onInvoicesNavigate,
+  onCustomersNavigate,
+  onProjectsNavigate,
+  onInvoiceClick
+}) => {
   const { t } = useTranslation(['analytics', 'common', 'invoice']);
   const { preferences } = useUIStore();
   const { monthlyRevenue, metrics } = useRevenueAnalytics();
@@ -157,8 +166,8 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate, onInvoiceClick }) => 
             {format(new Date(), 'EEEE, d. MMMM yyyy', { locale: preferences.language === 'de' ? de : undefined })}
           </p>
         </div>
-        <button 
-          onClick={() => onNavigate?.('invoice-new')} 
+        <button
+          onClick={onCreateInvoice}
           className="btn-primary"
         >
           + {t('invoice:actions.create')}
@@ -317,7 +326,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate, onInvoiceClick }) => 
               {t('analytics:customers.topCustomers')}
             </h2>
             <button 
-              onClick={() => onNavigate?.('customers')} 
+              onClick={onCustomersNavigate}
               className="text-sm hover:underline" 
               style={{ color: COLORS.primary }}
             >
@@ -360,7 +369,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate, onInvoiceClick }) => 
               {t('analytics:invoices.title')}
             </h2>
             <button 
-              onClick={() => onNavigate?.('invoice')} 
+              onClick={onInvoicesNavigate}
               className="text-sm hover:underline" 
               style={{ color: COLORS.primary }}
             >
@@ -413,7 +422,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate, onInvoiceClick }) => 
             Projektfortschritt
           </h2>
           <button 
-            onClick={() => onNavigate?.('projects')} 
+            onClick={onProjectsNavigate}
             className="text-sm hover:underline" 
             style={{ color: COLORS.primary }}
           >
