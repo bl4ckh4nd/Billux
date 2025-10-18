@@ -1,11 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import { api } from '../lib/api';
+import { orpc } from '../lib/api';
 import type { Invoice } from '../types/invoice';
 
 export const useCustomerInvoices = (customerName: string | undefined) => {
-  return useQuery<Invoice[], Error>({
-    queryKey: ['invoices', 'customer', customerName],
-    queryFn: () => customerName ? api.invoices.getByCustomer(customerName) : Promise.resolve([]),
-    enabled: !!customerName
+  return useQuery({
+    ...orpc.invoices.getByCustomer.queryOptions({
+      input: customerName ? { customerName } : undefined,
+      enabled: !!customerName,
+      initialData: [] as Invoice[]
+    })
   });
 };

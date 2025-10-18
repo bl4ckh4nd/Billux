@@ -1,13 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
-import { api } from '../lib/api';
+import { orpc } from '../lib/api';
 import type { Payment } from '../types/invoice';
 
 export const useInvoicePayments = (invoiceId: string | undefined) => {
-  return useQuery<Payment[], Error>({
-    queryKey: ['payments', 'invoice', invoiceId],
-    queryFn: () => invoiceId ? api.invoices.getPayments(invoiceId) : Promise.resolve([]),
-    enabled: !!invoiceId,
-    staleTime: 30000, // 30 seconds
+  return useQuery({
+    ...orpc.invoices.getPayments.queryOptions({
+      input: invoiceId ? { id: invoiceId } : undefined,
+      enabled: !!invoiceId,
+      initialData: [] as Payment[],
+      staleTime: 30000
+    })
   });
 };
 
@@ -17,8 +19,8 @@ export const useInvoicePaymentStats = (invoiceId: string | undefined) => {
     queryFn: async () => {
       if (!invoiceId) return null;
       
-      const payments = await api.invoices.getPayments(invoiceId);
-      const invoice = await api.invoices.get(invoiceId);
+      const payments = await orpc.invoices.getPayments.call({ id: invoiceId });
+      const invoice = await orpc.invoices.get.call({ id: invoiceId });
       
       if (!invoice) return null;
       

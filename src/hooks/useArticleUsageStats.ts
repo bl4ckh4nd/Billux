@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { api } from '../lib/api';
+import { orpc } from '../lib/api';
 import type { Article } from '../types/article';
 
 interface ArticleUsageStats {
@@ -31,7 +31,7 @@ export const useArticleUsageStats = (articleId: string | undefined) => {
     queryFn: async () => {
       if (!articleId) return null;
       
-      const article = await api.articles.get(articleId);
+      const article = await orpc.articles.get.call({ id: articleId });
       if (!article) return null;
       
       // Simulate usage statistics

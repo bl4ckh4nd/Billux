@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { api } from '../lib/api';
+import { api, orpc } from '../lib/api';
 import { UploadedDocument, ProcessingStatus, UploadConfig, ValidationError } from '../types/upload';
 import { businessRuleEngine } from '../services/businessRuleEngine';
 import { VendorMatchingService } from '../services/vendorMatchingService';
@@ -54,10 +54,10 @@ export const useInvoiceUpload = (options: UseInvoiceUploadConfig = {}): UseInvoi
     refetch: refreshDocuments,
     error: queryError
   } = useQuery({
-    queryKey: ['uploaded-documents'],
-    queryFn: api.upload.getDocuments,
-    refetchInterval: autoRefresh ? refreshInterval : false,
-    staleTime: 1000, // Consider data stale after 1 second for real-time updates
+    ...orpc.upload.getDocuments.queryOptions({
+      refetchInterval: autoRefresh ? refreshInterval : false,
+      staleTime: 1000
+    })
   });
 
   // Check if any files are currently processing

@@ -12,6 +12,9 @@
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
     "@mistralai/mistralai": "^1.7.3",
+    "@orpc/client": "^1.9.4",
+    "@orpc/server": "^1.9.4",
+    "@orpc/tanstack-query": "^1.9.4",
     "@react-pdf/renderer": "^4.3.0",
     "@tailwindcss/vite": "^4.1.11",
     "@tanstack/react-query": "^5.81.5",

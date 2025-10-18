@@ -1,20 +1,19 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { api } from '../lib/api';
+import { api, orpc } from '../lib/api';
 import type { Customer, CreateCustomerDTO } from '../types/customer';
 
 export const useCustomers = () => {
-  return useQuery<Customer[], Error>({
-    queryKey: ['customers'],
-    queryFn: api.customers.getAll,
-    initialData: []
+  return useQuery({
+    ...orpc.customers.getAll.queryOptions({ initialData: [] as Customer[] })
   });
 };
 
 export const useCustomer = (id: string) => {
-  return useQuery<Customer | undefined, Error>({
-    queryKey: ['customers', id],
-    queryFn: () => api.customers.getById(id),
-    enabled: !!id
+  return useQuery({
+    ...orpc.customers.getById.queryOptions({
+      input: { id },
+      enabled: !!id
+    })
   });
 };
 
@@ -24,8 +23,8 @@ export const useCreateCustomer = () => {
   return useMutation({
     mutationFn: (data: CreateCustomerDTO) => api.customers.create(data),
     onSuccess: (newCustomer: Customer) => {
-      queryClient.setQueryData<Customer[]>(['customers'], (old = []) => [...old, newCustomer]);
-      queryClient.invalidateQueries({ queryKey: ['customers'] });
+      queryClient.setQueryData(orpc.customers.getAll.queryKey(), (old: Customer[] = []) => [...old, newCustomer]);
+      queryClient.invalidateQueries({ queryKey: orpc.customers.getAll.queryKey() });
     }
   });
 };
@@ -37,11 +36,11 @@ export const useUpdateCustomer = () => {
     mutationFn: ({ id, data }: { id: string; data: Partial<Customer> }) => 
       api.customers.update(id, data),
     onSuccess: (updatedCustomer: Customer) => {
-      queryClient.setQueryData<Customer>(['customers', updatedCustomer.id], updatedCustomer);
-      queryClient.setQueryData<Customer[]>(['customers'], (old = []) => 
+      queryClient.setQueryData(orpc.customers.getById.queryKey({ input: { id: updatedCustomer.id } }), updatedCustomer);
+      queryClient.setQueryData(orpc.customers.getAll.queryKey(), (old: Customer[] = []) =>
         old.map(customer => customer.id === updatedCustomer.id ? updatedCustomer : customer)
       );
-      queryClient.invalidateQueries({ queryKey: ['customers'] });
+      queryClient.invalidateQueries({ queryKey: orpc.customers.getAll.queryKey() });
     }
   });
 };
@@ -52,11 +51,11 @@ export const useDeleteCustomer = () => {
   return useMutation({
     mutationFn: (id: string) => api.customers.delete(id),
     onSuccess: (_, id) => {
-      queryClient.removeQueries({ queryKey: ['customers', id] });
-      queryClient.setQueryData<Customer[]>(['customers'], (old = []) => 
+      queryClient.removeQueries({ queryKey: orpc.customers.getById.queryKey({ input: { id } }) });
+      queryClient.setQueryData(orpc.customers.getAll.queryKey(), (old: Customer[] = []) =>
         old.filter(customer => customer.id !== id)
       );
-      queryClient.invalidateQueries({ queryKey: ['customers'] });
+      queryClient.invalidateQueries({ queryKey: orpc.customers.getAll.queryKey() });
     }
   });
 };

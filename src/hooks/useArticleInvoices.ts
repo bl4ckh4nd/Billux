@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { api } from '../lib/api';
+import { orpc } from '../lib/api';
 import type { Invoice } from '../types/invoice';
 
 export const useArticleInvoices = (articleId: string | undefined) => {
@@ -9,7 +9,7 @@ export const useArticleInvoices = (articleId: string | undefined) => {
       if (!articleId) return [];
       
       // Get all invoices and filter those containing this article
-      const allInvoices = await api.invoices.getAll();
+      const allInvoices = await orpc.invoices.getAll.call();
       
       // In a real implementation, we would check invoice.items for articleId
       // For now, we'll simulate by randomly selecting some invoices
