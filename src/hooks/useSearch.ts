@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useNavigate } from '@tanstack/react-router';
 import { useInvoices } from './useInvoices';
 import { useCustomers } from './useCustomers';
 import { useProjects } from './useProjects';
@@ -24,6 +24,7 @@ export interface SearchState {
 }
 
 const useSearch = () => {
+  const navigate = useNavigate();
   const [searchState, setSearchState] = useState<SearchState>({
     query: '',
     results: [],
@@ -237,9 +238,9 @@ const useSearch = () => {
     const result = searchState.results[resultIndex];
     
     if (result) {
-      // Navigate to the result URL
-      window.location.href = result.url;
-      clearSearch();
+      void navigate({ to: result.url as never }).finally(() => {
+        clearSearch();
+      });
     }
   };
 
