@@ -2,24 +2,26 @@ import React from 'react';
 import { Building2, FileText, Users, Package, Euro, Bell, Briefcase, Settings, Upload } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
+import type { NavKey } from '../routes/navKeys';
+
 interface SidebarProps {
-  onNavigate: (view: 'dashboard' | 'invoice' | 'invoice-new' | 'invoice-upload' | 'customers' | 'articles' | 'finances' | 'projects' | 'reminders' | 'settings') => void;
-  currentView: string;
+  onNavigate: (view: NavKey) => void;
+  currentView: NavKey;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ onNavigate, currentView }) => {
   const { t } = useTranslation('navigation');
   
   const menuItems = [
-    { icon: Building2, label: t('sidebar.dashboard'), view: 'dashboard' },
-    { icon: FileText, label: t('sidebar.invoices'), view: 'invoice' },
-    { icon: Upload, label: t('sidebar.uploadOcr'), view: 'invoice-upload' },
-    { icon: Users, label: t('sidebar.customers'), view: 'customers' },
-    { icon: Package, label: t('sidebar.articles'), view: 'articles' },
-    { icon: Euro, label: t('sidebar.finances'), view: 'finances' },
-    { icon: Bell, label: t('sidebar.reminders'), view: 'reminders' },
-    { icon: Briefcase, label: t('sidebar.projects'), view: 'projects' },
-    { icon: Settings, label: t('sidebar.settings'), view: 'settings' },
+    { icon: Building2, label: t('sidebar.dashboard'), view: 'dashboard' as NavKey },
+    { icon: FileText, label: t('sidebar.invoices'), view: 'invoice' as NavKey },
+    { icon: Upload, label: t('sidebar.uploadOcr'), view: 'invoice-upload' as NavKey },
+    { icon: Users, label: t('sidebar.customers'), view: 'customers' as NavKey },
+    { icon: Package, label: t('sidebar.articles'), view: 'articles' as NavKey },
+    { icon: Euro, label: t('sidebar.finances'), view: 'finances' as NavKey },
+    { icon: Bell, label: t('sidebar.reminders'), view: 'reminders' as NavKey },
+    { icon: Briefcase, label: t('sidebar.projects'), view: 'projects' as NavKey },
+    { icon: Settings, label: t('sidebar.settings'), view: 'settings' as NavKey },
   ];
 
   return (
@@ -31,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onNavigate, currentView }) => {
       {menuItems.map((item) => (
         <button
           key={item.label}
-          onClick={() => onNavigate(item.view as 'dashboard' | 'invoice' | 'invoice-new' | 'invoice-upload' | 'customers' | 'articles' | 'finances' | 'projects' | 'reminders' | 'settings')}
+          onClick={() => onNavigate(item.view)}
           className={`p-3 rounded-xl transition-all duration-200 ${
             currentView === item.view
               ? 'bg-green-100 text-green-600'

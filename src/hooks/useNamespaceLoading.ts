@@ -61,7 +61,7 @@ export const useNamespaceLoading = ({
 };
 
 // Hook for route-based namespace loading
-export const useRouteNamespaces = (route: string) => {
+export const useRouteNamespaces = (namespaceKey?: string) => {
   const routeNamespaceMap: Record<string, string[]> = {
     'invoice': ['invoice', 'customer', 'common'],
     'invoice-new': ['invoice', 'customer', 'article', 'common'],
@@ -80,11 +80,12 @@ export const useRouteNamespaces = (route: string) => {
     'dashboard': ['analytics', 'invoice', 'customer', 'project', 'common'],
   };
 
-  const namespaces = routeNamespaceMap[route] || ['common'];
-  
-  return useNamespaceLoading({ 
-    namespaces, 
-    preload: true 
+  const key = namespaceKey ?? 'common';
+  const namespaces = routeNamespaceMap[key] || ['common'];
+
+  return useNamespaceLoading({
+    namespaces,
+    preload: true
   });
 };
 
